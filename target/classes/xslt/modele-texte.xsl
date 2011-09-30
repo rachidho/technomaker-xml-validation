@@ -8,10 +8,13 @@
 				<xsl:apply-templates select="messages/message" />
 	</xsl:template>
 	
+	<xsl:variable name="newLine" select="translate('&#xa;','','')"/> 
+	
 	<xsl:template match="message">
 			message : <xsl:value-of select="contenu" /> ; 
 			auteur : <xsl:value-of select="auteur"/> ; 
 			date : <xsl:value-of select="date"/>
+			<xsl:value-of select="$newLine" />
 	</xsl:template>
 	
 

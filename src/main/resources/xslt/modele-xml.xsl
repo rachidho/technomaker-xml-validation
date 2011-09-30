@@ -5,17 +5,25 @@
 	<xsl:output method="xml" indent="yes" />
 
 	<xsl:template match="/">
-		<!-- Continuez ici... -->
 		<auteurs>
-			<xsl:apply-templates select="messages/message" />
-		</auteurs>
-	</xsl:template>
 
-	<xsl:template match="message">
-		<auteur>
-			<nom><xsl:value-of select="auteur"></xsl:value-of></nom>
-			<message> <xsl:value-of select="contenu" /></message>
-		</auteur>
+			<xsl:for-each
+				select="//message[not(auteur = preceding-sibling::message/auteur)]">
+				<auteur>
+					<xsl:variable name="nomCourant">
+						<xsl:value-of select="auteur" />
+					</xsl:variable>
+					<nom>
+						<xsl:value-of select="$nomCourant" />
+					</nom>
+					<xsl:for-each select="//message[auteur=$nomCourant]">
+						<message>
+							<xsl:value-of select="contenu" />
+						</message>
+					</xsl:for-each>
+				</auteur>
+			</xsl:for-each>
+		</auteurs>
 	</xsl:template>
 
 </xsl:stylesheet>

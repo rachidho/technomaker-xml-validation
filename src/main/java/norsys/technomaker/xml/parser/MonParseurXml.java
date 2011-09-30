@@ -36,6 +36,7 @@ public final class MonParseurXml {
 
 		builder.append("<h1>Parseur XML</h1>");
 
+		// creation de parseur
 		File xmlFile = new File("src/main/resources/xml/donnees-messages.xml");
 		SAXBuilder builderSAX = new SAXBuilder();
 		try {
@@ -55,7 +56,7 @@ public final class MonParseurXml {
 				// On crée une List contenant tous les noeuds de chaque element
 				List<Element> listElementChildren = element.getChildren();
 				builder.append(" <table border='0' style='margin: 5 px'>");
-
+				// parcourir la liste des elements d'un message
 				for (Element elementChildren : listElementChildren) {
 					if ("auteur".equals(elementChildren.getName())) {
 						builder.append("<tr bgcolor='yellow'> <td> Nom : </td><td>"
