@@ -6,16 +6,20 @@
 
 	<xsl:template match="/">
 		<auteurs>
-
+			<!-- en elimine les doublon en utilisons l'exprission Xpath //message[not(auteur 
+				= preceding-sibling::message/auteur)] 'en séléctionner les noeuds qui n'ont 
+				pas de précédent' -->
 			<xsl:for-each
 				select="//message[not(auteur = preceding-sibling::message/auteur)]">
 				<auteur>
+					<!-- creation d'un variable pour l'affichage et pour faire de test -->
 					<xsl:variable name="nomCourant">
 						<xsl:value-of select="auteur" />
 					</xsl:variable>
 					<nom>
 						<xsl:value-of select="$nomCourant" />
 					</nom>
+					<!-- boucle pour affiché les message d'un auteur -->
 					<xsl:for-each select="//message[auteur=$nomCourant]">
 						<message>
 							<xsl:value-of select="contenu" />

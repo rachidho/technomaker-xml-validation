@@ -57,6 +57,10 @@ public final class MonParseurXml {
 				List<Element> listElementChildren = element.getChildren();
 				builder.append(" <table border='0' style='margin: 5 px'>");
 				// parcourir la liste des elements d'un message
+				
+				builder.append("<tr bgcolor='yellow'> <td> Reference : </td><td>"
+						+ element.getAttributeValue("reference")  + "</td></tr>");
+			
 				for (Element elementChildren : listElementChildren) {
 					if ("auteur".equals(elementChildren.getName())) {
 						builder.append("<tr bgcolor='yellow'> <td> Nom : </td><td>"
