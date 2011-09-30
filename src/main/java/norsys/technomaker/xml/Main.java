@@ -24,7 +24,7 @@ public final class Main {
 	 *             erreur technique.
 	 */
 	public static void main(String[] args) throws Throwable {
-		Server server = new Server(8080);
+		Server server = new Server(8081);
 
 		final int options = ServletContextHandler.SESSIONS;
 		ServletContextHandler context = new ServletContextHandler(options);
