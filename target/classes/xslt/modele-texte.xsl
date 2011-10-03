@@ -8,9 +8,11 @@
 				<xsl:apply-templates select="messages/message" />
 	</xsl:template>
 	
+	<xsl:variable name="retournLigne"><![CDATA[<br/>]]></xsl:variable>
+	
 	<xsl:template match="message">
-		message :<xsl:value-of select="contenu" />; auteur :<xsl:value-of select="auteur" />; date :<xsl:value-of select="date" />
-		<xsl:text>&#xa;</xsl:text>
+		message : <xsl:value-of select="contenu" />; auteur : <xsl:value-of select="auteur" />; date : <xsl:value-of select="date" />
+		<xsl:value-of select="$retournLigne"/>
 	</xsl:template>
 	
 
