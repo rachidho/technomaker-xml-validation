@@ -22,7 +22,8 @@
 					<!-- boucle pour affiché les message d'un auteur -->
 					<xsl:for-each select="//message[auteur=$nomCourant]">
 						<message>
-							<xsl:value-of select="contenu" />
+							<contenu><xsl:value-of select="contenu" /></contenu>
+							<date><xsl:value-of select="date" /></date>
 						</message>
 					</xsl:for-each>
 				</auteur>
