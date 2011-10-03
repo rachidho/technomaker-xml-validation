@@ -19,13 +19,19 @@
 					<nom>
 						<xsl:value-of select="$nomCourant" />
 					</nom>
-					<!-- boucle pour affiché les message d'un auteur -->
-					<xsl:for-each select="//message[auteur=$nomCourant]">
-						<message>
-							<contenu><xsl:value-of select="contenu" /></contenu>
-							<date><xsl:value-of select="date" /></date>
-						</message>
-					</xsl:for-each>
+					<massages>
+						<!-- boucle pour affiché les message d'un auteur -->
+						<xsl:for-each select="//message[auteur=$nomCourant]">
+							<message>
+								<contenu>
+									<xsl:value-of select="contenu" />
+								</contenu>
+								<date>
+									<xsl:value-of select="date" />
+								</date>
+							</message>
+						</xsl:for-each>
+					</massages>
 				</auteur>
 			</xsl:for-each>
 		</auteurs>
