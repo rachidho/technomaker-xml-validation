@@ -10,7 +10,7 @@
 	
 	<xsl:template match="message">
 		message :<xsl:value-of select="contenu" />; auteur :<xsl:value-of select="auteur" />; date :<xsl:value-of select="date" />
-		<xsl:text />
+		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 	
 
